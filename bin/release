@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
-cat <<EOF
+cat << EOF
 ---
+addons:
+  - scalingo-postgresql
+config_vars:
+  PATH: /app/bin:/app/tegola:/usr/local/bin:/usr/bin:/bin
 default_process_types:
-  web: \$HOME/bin/startup.sh
+  web: startup.sh
 EOF

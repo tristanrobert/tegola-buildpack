@@ -26,6 +26,7 @@ install_tegola_server "${BUILD_DIR}" "${CACHE_DIR}" "${ENV_DIR}"
 # Copy startup script:
 mkdir -p "${BUILD_DIR}/bin"
 cp "${BUILDPACK_DIR}/bin/startup.sh" "${BUILD_DIR}/bin/"
+chmod +x "${BUILD_DIR}/bin/startup.sh"
 
 # Copy config file:
 cp "${BUILDPACK_DIR}/config.toml" "${BUILD_DIR}/tegola/"
