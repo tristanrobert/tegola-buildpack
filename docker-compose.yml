@@ -1,0 +1,35 @@
+version: '3.8'
+
+services: 
+    postgres: 
+        image: postgis/postgis
+        networks: 
+            - tegola_network
+        container_name: postgres
+        env_file: ./env/.env
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+            - ./postgresql/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh:ro
+    tegola:
+        build: .
+        networks: 
+            - tegola_network
+        volumes: 
+            - .:/buildpack
+            - cache:/cache
+            - build:/build
+            - env:/env
+            - app:/app
+        env_file: ./env/.env
+        ports: 
+            - 8080:8080
+        depends_on:
+            - postgres
+volumes: 
+    postgres_data:
+    cache:
+    build:
+    env:
+    app:
+networks: 
+    tegola_network:

@@ -1,5 +1,6 @@
 #!/bin/bash
 if [ -f "$1/config.toml" ]; then
-    echo "Tegola (config.toml)" && exit 0
-    echo "no config.toml found" && exit 1
+    echo "Tegola (found $1/config.toml)" && exit 0
+else
+    echo "no config.toml found in $1" && exit 1
 fi

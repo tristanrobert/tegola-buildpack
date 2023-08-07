@@ -14,12 +14,9 @@ readonly ENV_DIR="${3}"
 readonly BASE_DIR="$( cd -P "$( dirname "$0" )" && pwd )"
 readonly BUILDPACK_DIR="$( readlink -f "${BASE_DIR}/.." )"
 
-readonly tegola_version="${TEGOLA_VERSION:-0.17.0}"
-
 # "Include" functions:
 source "${BUILDPACK_DIR}/bin/tegola.fn.sh"
 
-echo "---> Installing Tegola ${tegola_version}"
 mkdir -p "${BUILD_DIR}/tegola"
 install_tegola_server "${BUILD_DIR}" "${CACHE_DIR}" "${ENV_DIR}"
 
@@ -29,6 +26,6 @@ cp "${BUILDPACK_DIR}/bin/startup.sh" "${BUILD_DIR}/bin/"
 chmod +x "${BUILD_DIR}/bin/startup.sh"
 
 # Copy config file:
-cp "${BUILDPACK_DIR}/config.toml" "${BUILD_DIR}/tegola/"
+cp "${BUILD_DIR}/config.toml" "${BUILD_DIR}/tegola/"
 
 exit 0
