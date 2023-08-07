@@ -1,3 +1,5 @@
 #!/bin/bash
-
-echo "Tegola" && exit 0
+if [ -f "$1/config.toml" ]; then
+    echo "Tegola (config.toml)" && exit 0
+    echo "no config.toml found" && exit 1
+fi
