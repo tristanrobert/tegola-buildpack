@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "Tegola" && exit 0
