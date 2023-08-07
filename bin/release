@@ -8,5 +8,5 @@ addons:
 config_vars:
   PATH: /app/bin:/app/tegola:/usr/local/bin:/usr/bin:/bin
 default_process_types:
-  web: startup.sh
+  web: /app/bin/startup.sh
 EOF
